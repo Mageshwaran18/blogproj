@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" >
+    <title>User Details Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 150vh;
+            animation: backgroundAnimation 10s infinite alternate; /* Add animation */
+        }
+
+        @keyframes backgroundAnimation {
+            from {
+                background-color: #f4f4f4;
+            }
+            to {
+                background-color: #e0e0e0;
+            }
+        }
+
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            padding-right: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex; /* Changed from grid to flex */
+            flex-wrap: wrap; /* Allow items to wrap to the next line */
+            gap: 10px;
+            justify-content: space-between;
+            max-width: 800px; /* Adjust the max-width to your preference */
+        }
+
+        h1 {
+            color: #222222;
+            text-align: center;
+            width: 100%; /* Make the heading full width */
+            margin-bottom: 0px;
+        }
+
+        hr {
+            width: 100%;
+            border: 1px solid #070707;
+            margin-bottom: 20px; /* Added margin below the horizontal line */
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        input, button {
+            padding: 10px;
+            box-sizing: border-box;
+            flex-grow: 1; /* Grow to fill available space */
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            width: 1px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .fa {
+            margin-right: 10px;
+            width: 20px; /* Adjust the width of the icon */
+        }
+
+        .fas {
+            margin-right: 10px;
+            width: 20px; /* Adjust the width of the icon */
+        }
+
+        .submit {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            width: 7%;
+            border-radius: 4px;
+            cursor: pointer;
+            position:-webkit-sticky;
+            top: 30px;
+            right: 250px;
+            z-index: 1;
+             
+        }
+
+        .submit:hover {
+            background-color: #45a049;
+        }
+    </style>    
+</head>
+<body>
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <h1><i class="fas fa-user"></i> User Details Form</h1>
+            <hr>
+            <label for="id_name"><i class="fa fa-user"></i> Name:</label>
+            {{ form.name }}
+            
+            <label for="id_email"><i class="fa fa-envelope"></i> Email:</label>
+            {{ form.email }}
+            
+            <label for="id_domain"><i class="fas fa-globe"></i> Domain:</label>
+            {{ form.domain }}
+            <label for="id_year">Year:</label>
+            <select name="year" id="id_year">
+                {% for value, label in form.fields.year.choices %}
+                    <option value="{{ value }}" {% if value == form.initial.year %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+            </select>
+            <label for="id_department">Department:</label>
+            <select name="department" id="id_department">
+                {% for value, label in form.fields.department.choices %}
+                    <option value="{{ value }}" {% if value == form.initial.department %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+            </select>
+            <label for="id_about"><i class="fa fa-city"></i> About Yourself:</label>
+            {{ form.about }}
+            
+            <label for="id_city"><i class="fa fa-city"></i> City:</label>
+            {{ form.city }}
+            
+            <label for="id_phone_number"><i class="fa fa-phone fa-flip-horizontal"> </i> Phone Number:</label>
+            {{ form.phone_number }}
+            <label for="id_linkedin"><i class="fa fa-phone fa-flip-horizontal"> </i> Linkedin:</label>
+            {{ form.linkedin }}
+            <label for="id_github"><i class="fa fa-phone fa-flip-horizontal"> </i> GitHub:</label>
+            {{ form.github }}
+            <label for="id_phone_number"><i class="fa fa-phone fa-flip-horizontal"> </i> Skills:</label>
+            {{ form.skillss }}
+            <label for="id_phone_number"><i class="fa fa-phone fa-flip-horizontal"> </i> Projects:</label>
+            {{ form.projects }}
+            <label for="id_available">Availability:</label>
+            <select name="available" id="id_available">
+                {% for value, label in form.fields.available.choices %}
+                    <option value="{{ value }}" {% if value == form.initial.available %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+            </select>
+            
+            <hr>
+            <button class="submit" type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
