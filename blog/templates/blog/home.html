@@ -10,9 +10,8 @@
                 <small class="text-muted" style="font-weight: bold; font-size: 1.1em;">{{ posts.available }}</small>
             </div>
               <h2><a class="article-title" href="{% url 'blog-detail' posts.id %}" style="font-weight: bold; font-size: 1.1em;"s>{{ posts.name }}</a></h2>
-              <p class="article-content" style="font-weight: bold; font-size: 1.1em;">{{ posts.year }}</p>
-              <h2><a class="article-title" href="{% url 'blog-detail' posts.id %}" style="font-weight: bold; font-size: 1.1em;"s>{{ posts.name }}</a></h2>
-              <p class="article-content" style="font-weight: bold; font-size: 1.1em;">{{ posts.year }}</p>
+              <p class="article-content" style="font-weight: bold; font-size: 1.1em;">{{ posts.year }} {{ posts.department }}</p>
+              
             </div>
             <br>
           </article>
