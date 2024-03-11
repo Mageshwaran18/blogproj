@@ -50,7 +50,7 @@ class PostDetailView(LoginRequiredMixin, DetailView):
 def createProfile(request):
     form = UserForm()
     if request.method == 'POST':
-        form = UserForm(request.POST)
+        form = UserForm(request.POST, request.FILES)
         print("Form is submitted")
         if form.is_valid():
             # Check if UserInfo with given name and email already exists
@@ -69,6 +69,7 @@ def createProfile(request):
                     'github':form.cleaned_data['github'],
                     'department':form.cleaned_data['department'],
                     'about':form.cleaned_data['about'],
+                    'profile_picture':form.cleaned_data['profile_picture']
                 }
             )
             # If UserInfo already exists, update its attributes
@@ -83,7 +84,8 @@ def createProfile(request):
                 info_obj.year = form.cleaned_data['year']
                 info_obj.linkedin = form.cleaned_data['linkedin']
                 info_obj.github = form.cleaned_data['github']
-                info_obj.github = form.cleaned_data['about']
+                info_obj.about = form.cleaned_data['about']
+                info_obj.profile_picture = form.cleaned_data['profile_picture']
 
                 info_obj.save()
 

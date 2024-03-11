@@ -31,9 +31,10 @@ class UserForm(forms.Form):
         ('IV','IV'),
     ]
     year=forms.ChoiceField(choices=choicesss)
-    linkedin = forms.CharField(max_length=100, widget=forms.Textarea, required=False)
-    github = forms.CharField(max_length=100, widget=forms.Textarea, required=False)
+    linkedin = forms.URLField(max_length=100, widget=forms.TextInput(attrs={'rows': 1, 'cols': 30}), required=False)
+    github = forms.URLField(max_length=100, widget=forms.TextInput(attrs={'rows': 1, 'cols': 30}), required=False)
     about = forms.CharField(max_length=250,widget=forms.Textarea,required=True)
+    profile_picture = forms.ImageField(required=False)
 
     def clean_skills(self):
         skills = self.cleaned_data.get('skills')
