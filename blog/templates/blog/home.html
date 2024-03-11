@@ -3,7 +3,7 @@
 
     {% for posts in posts %}
         <article class="media content-section">
-            <img class="rounded-cirlce article-img" src="{{ posts.author.profile.image.url }}" alt="">
+            <img class="rounded-cirlce article-img" src="{{ posts.profile_picture.url }}" alt="">
             <div class="media-body">
               <div class="article-metadata">
                 <a class="mr-2" href="{% url 'blog-detail' posts.id %}" style="font-weight: bold; font-size: 1.1em;">{{ posts.domain }}</a>

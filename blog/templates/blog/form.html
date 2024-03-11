@@ -15,7 +15,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 150vh;
+            height: 200vh;
             animation: backgroundAnimation 10s infinite alternate; /* Add animation */
         }
 
@@ -121,7 +121,7 @@
 </head>
 <body>
     <div class="container">
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data"> 
             {% csrf_token %}
             <h1><i class="fas fa-user"></i> User Details Form</h1>
             <hr>
@@ -167,6 +167,10 @@
                     <option value="{{ value }}" {% if value == form.initial.available %}selected{% endif %}>{{ label }}</option>
                 {% endfor %}
             </select>
+
+            <label for="id_profile_picture"><i class="far fa-image"></i> Profile Picture:</label>
+            {{ form.profile_picture }}
+            
             
             <hr>
             <button class="submit" type="submit">Submit</button>

@@ -34,6 +34,7 @@ class UserForm(forms.Form):
     linkedin = forms.CharField(max_length=100, widget=forms.Textarea, required=False)
     github = forms.CharField(max_length=100, widget=forms.Textarea, required=False)
     about = forms.CharField(max_length=250,widget=forms.Textarea,required=True)
+    profile_picture = forms.ImageField(required=False)
 
     def clean_skills(self):
         skills = self.cleaned_data.get('skills')

@@ -56,7 +56,7 @@ class UserInfo(models.Model):
     linkedin=models.CharField(max_length=100,default='',null=True)
     github=models.CharField(max_length=100,default='',null=True)
     about=models.TextField(max_length=200,default=None,null=True)
-
+    profile_picture = models.ImageField(upload_to='profile_pics/', blank=True, null = True)
 
     def __str__(self):
         return self.name
