@@ -7,8 +7,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db.models import Case, When, Value, CharField
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 40854cce8d8d30f62a34b09a2284071b83f936ef
 # def home(request):
 #     context = {
 #         'posts': Post.objects.all()
@@ -20,6 +23,7 @@ def about(request):
     return render(request, 'blog/about.html', {'title': "About Page"})
 
 
+<<<<<<< HEAD
 def first(request):
     return render(request, 'blog/first.html')
 
@@ -30,6 +34,12 @@ def domains(request):
 @login_required
 def option(request):
     return render(request, 'blog/option.html')
+=======
+def room(request):
+    return render(request, 'blog/room.html')
+
+
+>>>>>>> 40854cce8d8d30f62a34b09a2284071b83f936ef
 
 class PostListView(LoginRequiredMixin, ListView):
     model = UserInfo
@@ -152,5 +162,32 @@ class PostDeleteView(DeleteView):
         if self.request.user == post.author:
             return True
         return False
+<<<<<<< HEAD
 def form(request):
     return render(request,'blog/form.html')
+=======
+
+
+def chat_room(request):
+    usernames = UserInfo.objects.all()
+    messages = Message.objects.select_related('sender').all()
+    return render(request, 'blog/chat.html', {'messages': messages,'usernames': usernames})
+
+
+def send_message(request):
+    if request.method == 'POST':
+        content = request.POST.get('message')
+        if content:
+            message = Message.objects.create(sender=request.user, content=content)
+    return redirect('chat')
+
+@login_required
+def delete_message(request, message_id):
+    message = get_object_or_404(Message, id=message_id)
+
+    # Check if the current user is the one who posted the message
+    if request.user == message.sender:
+        message.delete()
+
+    return redirect('chat')
+>>>>>>> 40854cce8d8d30f62a34b09a2284071b83f936ef

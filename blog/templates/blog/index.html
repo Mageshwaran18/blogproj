@@ -26,7 +26,7 @@
                         <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
                         <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
                         <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                        <li class="nav__item"><a href="#portfolio" class="nav__link">Projects Done</a></li>
+                        <li class="nav__item"><a href="#projects" class="nav__link">Projects Done</a></li>
                         <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
                     </ul>
                 </div>
@@ -46,7 +46,9 @@
                     <div class="home__scroll">
                         <a href="#about" class="home__scroll-link"><i class='bx bx-up-arrow-alt' ></i>Scroll down</a>
                     </div>
-
+                    <div class="home__image">
+                        <img src="http://127.0.0.1:8000/media/{{posts.profile_picture.name}}" alt="">
+                    </div>
                 </div>
             </section>
             
@@ -83,7 +85,7 @@
             </section>
             
             <!--===== PORTFOLIO =====-->
-            <section class="skills section" id="skills">
+            <section class="skills section" id="projects">
                 <h2 class="section-title">Projects</h2>
                 <div class="skills__container bd-grid">
                     <div class="skills__box">
@@ -92,7 +94,7 @@
                         {% endfor %}
                     </div>
                     <div class="skills__img">
-                        <img src='{% static "blog/assets/img/skill.jpg" %}' alt="">
+                        <img src='{% static "blog/assets/img/work1.jpeg" %}' alt="">
                     </div>
                 </div>
             </section>

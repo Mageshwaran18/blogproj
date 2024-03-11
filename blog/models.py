@@ -53,10 +53,18 @@ class UserInfo(models.Model):
     available = models.CharField(max_length=20, choices=choices,default='available')
     department=models.CharField(max_length=20, choices=choicess,default='CSE')
     year=models.CharField(max_length=20, choices=choicesss,default='I')
-    linkedin=models.CharField(max_length=100,default='',null=True)
-    github=models.CharField(max_length=100,default='',null=True)
+    linkedin=models.URLField(max_length=100,default='',null=True)
+    github=models.URLField(max_length=100,default='',null=True)
     about=models.TextField(max_length=200,default=None,null=True)
     profile_picture = models.ImageField(upload_to='profile_pics/', blank=True, null = True)
 
     def __str__(self):
         return self.name
+
+class Message(models.Model):
+    sender = models.ForeignKey(User, on_delete=models.CASCADE)
+    content = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+    
+
+
