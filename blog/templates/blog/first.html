@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+  <link rel="stylesheet" href="{% static 'blog/main.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+  <style>
+    body{
+      min-height:100vh;
+   
+    }
+    .carousel-container {
+    
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .slick-slider {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-size:cover;
+      
+      margin:0;
+    }
+
+    .slick-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slick-slide:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.08); /* Semi-transparent black overlay */
+    }
+
+    .slick-prev,
+    .slick-next {
+      z-index: 1;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+      font-size: 24px;
+      color: #000;
+    }
+
+    .slick-dots {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .slick-dots li {
+      display: inline-block;
+      margin: 0 5px;
+    }
+
+    .slick-dots li button {
+      font-size: 12px;
+      border: 1px solid #000;
+      background-color: transparent;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .slick-dots li.slick-active button {
+      background-color: #000;
+    }
+
+    .welcome-message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 999;
+      color: #fff;
+    }
+
+    .welcome-message h1 {
+      font-size: 36px;
+      color: #03e9f4; /* Neon blue color */
+    }
+
+  </style>
+</head>
+<body>
+  <div class="carousel-container">
+    <div class="slick-slider" style = "align-item: center ">
+      <div><img src="https://images.pexels.com/photos/6476254/pexels-photo-6476254.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Image 1"></div>
+      <div><img src="https://images.pexels.com/photos/5324853/pexels-photo-5324853.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Image 2"></div>
+      <div><img src="https://images.pexels.com/photos/5668492/pexels-photo-5668492.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Image 3"></div>
+      <div><img src="https://images.pexels.com/photos/6140676/pexels-photo-6140676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Image 4"></div>
+    </div>
+    <div class="welcome-message">
+      <h1>Welcome to Tech Connect</h1>
+
+      <a href="{% url 'option'%}" id="auth-links">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        GET STARTED
+    </a>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.slick-slider').slick({
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 0,
+        speed: 6000,
+        cssEase: 'linear',
+        slidesToShow: 1,
+        slidesToScroll: 1
+      });
+    });
+  </script>
+</body>
+</html>

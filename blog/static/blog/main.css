@@ -38,10 +38,15 @@ body {
   .content-section {
     background: #ffffff;
     /* border-radius: 20px; */
-    padding: 10px 20px;
+    padding:0;
     /* border: 1px solid #dddddd; */
+    justify-content: center;
+    align-items: center;
     border-radius: 10px;
-    margin-bottom: 20px;
+    width: 50%; /* Set the width of the form */
+    margin:0; /* Center the form horizontally */
+    margin-top: 5rem;
+    margin-left: 0;
   }
 
   .article-title {

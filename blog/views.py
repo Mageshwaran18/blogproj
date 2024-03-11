@@ -6,6 +6,8 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db.models import Case, When, Value, CharField
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.decorators import login_required
+
 
 # def home(request):
 #     context = {
@@ -17,6 +19,17 @@ form=UserForm()
 def about(request):
     return render(request, 'blog/about.html', {'title': "About Page"})
 
+
+def first(request):
+    return render(request, 'blog/first.html')
+
+@login_required
+def domains(request):
+    return render(request, 'blog/domains.html')
+
+@login_required
+def option(request):
+    return render(request, 'blog/option.html')
 
 class PostListView(LoginRequiredMixin, ListView):
     model = UserInfo
@@ -139,3 +152,5 @@ class PostDeleteView(DeleteView):
         if self.request.user == post.author:
             return True
         return False
+def form(request):
+    return render(request,'blog/form.html')

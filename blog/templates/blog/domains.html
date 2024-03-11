@@ -1,0 +1,147 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<head>
+    <style>
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        border-radius: 20px; /* Round the corners */
+        justify-content: center; /* Center-align items horizontally */
+        overflow: hidden;
+      }
+  
+      .product {
+        width: calc(25% - 40px);
+        background: rgba(255, 255, 255, 0.0);
+        overflow: hidden;
+        margin: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease-in-out;
+        border-radius: 20px; /* Round the corners */
+      }
+  
+      .product:hover {
+        transform: translateY(-5px);
+      }
+  
+      .product img {
+        width: 100%;
+        border-radius: 20px;
+        object-fit: cover;
+      }
+  
+      .product h3 {
+        margin-top: 10px;
+        font-size: 18px;
+        color: #333;
+      }
+  
+      .product p {
+        margin: 10px 0;
+        font-size: 16px;
+        font-weight:bold;
+        color:black;
+      }
+
+    </style>
+</head>
+<div style="margin-bottom: -200px;
+            padding-bottom:200px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+            font-family: 'Arial', sans-serif;
+            font-size: 3rem;
+            color: #03e9f4;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 1px; 
+            text-transform: uppercase;">
+    <h1 style="
+               font-size: inherit;
+               color: inherit;
+               text-shadow: inherit;
+               letter-spacing: inherit; 
+               text-transform: inherit;font-weight: bold;">Domains</h1>
+</div>
+
+<div class="container" >
+    <div class="product">
+        <a href="{% url 'blog-home' %}">
+            <img src="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+        </a>
+        <p style = " color :  #03e9f4;">Web Development</p>
+    </div>
+    <div class="product">
+        <a href="#">
+            <img src="https://images.pexels.com/photos/887751/pexels-photo-887751.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+        </a>
+        <p style = " color :  #03e9f4;">Mobile Development</p>
+    </div>
+
+    <div class="product">
+        <a href="#">
+            <img src="https://img.freepik.com/free-vector/flat-design-cms-concept-illustrated_23-2148796510.jpg?t=st=1710085790~exp=1710089390~hmac=c378875ed10c5fa955fa7bbb33a13882410aa5d56e0493bf8f6c484e7d84a073&w=826" alt="">
+        </a>
+        <p style = " color :  #03e9f4;">Desktop Development</p>
+    </div>
+
+    <div class="product">
+        <a href="#">
+            <img src="https://images.pexels.com/photos/1432675/pexels-photo-1432675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+        </a>
+        <p style = " color :  #03e9f4;">Embedded System</p>
+    </div>
+
+    <div class="product">
+        <a href="#">
+            <img src="https://img.freepik.com/free-photo/revenue-operations-collage_23-2150847854.jpg?t=st=1710085877~exp=1710089477~hmac=2e447fee33a7c03f558522f2dc63b6a624fdae595e01db96b2c1f8ffc9328f5e&w=900" alt="">
+        </a>
+        <p style = " color :  #03e9f4;">Data Science</p>
+    </div>
+
+    <div class="product">
+        <a href="#">
+            <img src="https://img.freepik.com/free-photo/saas-concept-collage_23-2149399281.jpg?t=st=1710086137~exp=1710089737~hmac=4b41aad2f2a16fc388fd9bc3ff7cd676c28b69cee2377ab278832550aea08e6d&w=826" alt="">
+        </a>
+        <p style = " color :  #03e9f4;">Cloud Computing</p>
+    </div>
+
+    <div class="product">
+        <a href="#">
+            <img src="https://img.freepik.com/free-photo/robot-handshake-human-background-futuristic-digital-age_53876-129770.jpg?t=st=1710086275~exp=1710089875~hmac=3a35524225761e10bb1dcb5904595ccb155e18c7199724133dc18f71a8cde209&w=826" alt="">
+        </a>
+        <p style = " color :  #03e9f4;">Artificial Intelligence</p>
+    </div>
+    <div class="product">
+        <a href="#">
+            <img src="https://img.freepik.com/free-vector/online-games-concept_52683-38701.jpg?t=st=1710086383~exp=1710089983~hmac=ecd1d54a7684e9bfc27c09f78f4c651b905456b21807191a1dc4c7c7a65e9ff1&w=826" alt="">
+        </a>
+        <p style = " color :  #03e9f4;">Game Development</p>
+    </div>
+    <div class="product">
+        <a href="#">
+            <img src="https://img.freepik.com/free-photo/html-css-collage-concept-with-hacker_23-2150061984.jpg?t=st=1710086880~exp=1710090480~hmac=b64992f72d6c54bc629c6637e4cfc131fd31a7599d120b6567c7c63a04024aff&w=826" alt="">
+        </a>
+        <p style = " color :  #03e9f4;">Cyber Security</p>
+    </div>
+    
+    <div class="product">
+        <a href="#">
+            <img src="https://img.freepik.com/free-vector/gradient-devops-illustration_23-2149379660.jpg?t=st=1710086669~exp=1710090269~hmac=0513c8d18a880d96e05638668d2a9870b210077fc00e7396000c8859680d1513&w=826" alt="">
+        </a>
+        <p style = " color :  #03e9f4;">Dev Ops</p>
+    </div>
+    <div class="product">
+        <a href="#">
+            <img src="https://img.freepik.com/premium-photo/5g-communication-technology-wireless-internet-network-global-business-growth_31965-10901.jpg?w=826" alt="">
+        </a>
+        <p style = " color :  #03e9f4;">IOT</p>
+    </div>
+    
+</div>
+
+{% endblock %}
+
