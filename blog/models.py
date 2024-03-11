@@ -60,3 +60,11 @@ class UserInfo(models.Model):
 
     def __str__(self):
         return self.name
+
+class Message(models.Model):
+    sender = models.ForeignKey(User, on_delete=models.CASCADE)
+    content = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+    
+
+

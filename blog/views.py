@@ -6,7 +6,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db.models import Case, When, Value, CharField
 from django.shortcuts import get_object_or_404
-
+from django.contrib.auth.decorators import login_required
 # def home(request):
 #     context = {
 #         'posts': Post.objects.all()
@@ -16,6 +16,11 @@ form=UserForm()
 
 def about(request):
     return render(request, 'blog/about.html', {'title': "About Page"})
+
+
+def room(request):
+    return render(request, 'blog/room.html')
+
 
 
 class PostListView(LoginRequiredMixin, ListView):
@@ -137,3 +142,27 @@ class PostDeleteView(DeleteView):
         if self.request.user == post.author:
             return True
         return False
+
+
+def chat_room(request):
+    usernames = UserInfo.objects.all()
+    messages = Message.objects.select_related('sender').all()
+    return render(request, 'blog/chat.html', {'messages': messages,'usernames': usernames})
+
+
+def send_message(request):
+    if request.method == 'POST':
+        content = request.POST.get('message')
+        if content:
+            message = Message.objects.create(sender=request.user, content=content)
+    return redirect('chat')
+
+@login_required
+def delete_message(request, message_id):
+    message = get_object_or_404(Message, id=message_id)
+
+    # Check if the current user is the one who posted the message
+    if request.user == message.sender:
+        message.delete()
+
+    return redirect('chat')
